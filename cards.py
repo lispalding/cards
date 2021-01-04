@@ -23,10 +23,34 @@ class Card(object): # Creating a class called "Card"
         |          |
         |          |
         |          |
-        |      {1}{0:>2} |
+        |     {1}{0:>2}  |
         +----------+
         """, self.rank, self.suit)
         return rep
+
+class Pos_Card(Card):
+    def __init__(self, rank, suit, faceUp=True):
+        super(Pos_Card, self).__init__(rank, suit)
+        self.isFaceUp = faceUp
+
+    def __str__(self):
+        if self.isFaceUp:
+            rep = super(Pos_Card, self).__str__()
+
+        else:
+            rep = str.format("""
+                        +----------+
+                        | ******** |
+                        | ******** |
+                        | ******** |
+                        | ******** |
+                        | ******** |
+                        +----------+
+                        """, self.rank, self.suit)
+        return rep
+
+    def flip(self):
+        self.isFaceUp = not self.isFaceUp
 
 class Hand(object): # Creating a class called "Hand"
     def __init__(self): # Defining the self
@@ -78,22 +102,6 @@ class Deck(Hand):
 
 ####################### FIN #######################
 
-myHand = Hand()
-yourHand = Hand()
-handsList = [myHand,yourHand]
-deck = Deck()
-deck.populate()
-deck.shuffle()
-deck.deal(handsList, 5)
-for hand in handsList:
-    print(hand)
-
-myHand.give(myHand.cards[0],yourHand)
-
-print(yourHand)
-
-## rank = random.choice(Card.RANKS)
-## suit = random.choice(Card.SUITS)
-
-## card = Card(rank,suit)
-## print(card)
+if __name__ == "__main__":
+    print("This is a module with classes for playing cards, not meant to be ran on it's own.")
+    input("\n\n Press the enter key to exit.")
