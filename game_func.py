@@ -1,3 +1,7 @@
+# MADY BY: Lisette Spalding
+# DATE CREATED: 12/17/2021
+# DATE LAST MODIFIED: 01-06-2021
+
 ##################### FUNCTIONS #####################
 def getName(question):
     """ Runs and gets names. To use: getName() """
@@ -107,6 +111,7 @@ class Score(object):
 
 ######################## FIN ########################
 
+# Making sure that the program isn't run separately from the main program
 if __name__ == "__main__":
     print("This is a module with classes for playing cards, not meant to be ran on it's own.")
     input("\n\n Press the enter key to exit.")

@@ -13,10 +13,12 @@ class Card(object): # Creating a class called "Card"
     SUITS = ["♥", "♦","♣","♠"]
 
     def __init__(self,rank,suit):
+        """ Defining the rank and suit. """
         self.rank = rank
         self.suit = suit
 
     def __str__(self):
+        """ Making it so that the deck can be printed. """
         rep = str.format("""
         +----------+
         | {0:<2}{1}      |
@@ -29,6 +31,8 @@ class Card(object): # Creating a class called "Card"
         return rep
 
 class Pos_Card(Card):
+    # This is the POSITIONAL CARD class. This class determines a card's value and if it is face-up or face-down.
+    ## It determines what to print.
     def __init__(self, rank, suit, faceUp=True):
         super(Pos_Card, self).__init__(rank, suit)
         self.isFaceUp = faceUp
